@@ -1,0 +1,51 @@
+
+.titreHeader {
+  padding: 0 20px;
+}
+
+.titreHeader h2 {
+  font-size: 50px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.postbox_input img {
+  border-radius: 50%;
+  height: 40px;
+}
+
+.postBox {
+  padding: 20px 10px;
+  border: 1px solid black;
+  border-radius: 30px;
+}
+
+.postBox form {
+  display: flex;
+  flex-direction: column;
+}
+
+.postbox_input {
+  display: flex;
+  padding: 20px;
+}
+
+.postbox_input input {
+  flex: 1;
+  margin-left: 20px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+.postBox_postBoutton {
+  background-color: #45a049;
+  border: none;
+  color: white;
+  font-weight: 900;
+  border-radius: 30px;
+  width: 80px;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: auto;
+}

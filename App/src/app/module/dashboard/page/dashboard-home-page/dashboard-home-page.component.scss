@@ -1,0 +1,36 @@
+html{
+  margin: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.mainMenu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left, .middle, .right {
+  padding: 20px;
+}
+
+.left {
+  flex: 0 0 350px; /* Partie de gauche fixe de 200 pixels */
+  background-color: #ebebeb;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+.middle {
+  flex: 1; /* Partie centrale extensible */
+  background-color: #ffffff;
+  border-right: 1px solid #e1e8ed; /* Ajoute une bordure à droite de la partie centrale */
+  margin-left: 230px; /* Compense l'espace pris par la partie de gauche fixe */
+}
+
+.right {
+  flex: 0 0 350px; /* Partie de droite fixe de 200 pixels */
+  background-color: #ebebeb;
+}

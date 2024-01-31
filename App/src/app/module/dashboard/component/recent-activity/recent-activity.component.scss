@@ -1,0 +1,78 @@
+/*
+.yourPage{
+  border: 1px solid black;
+}
+.yourPage img {
+  height: 40px;
+}
+.yourPageStat{
+  display: flex;
+}
+*/
+
+.yourPage {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.yourPage h2 {
+  color: #333333;
+}
+
+
+
+.yourPageStat a img {
+  max-width: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.YourPageStatSeparation {
+  border-bottom: 2px solid gray;
+}
+
+.YourPageStatSeparation h3 {
+  color: #555555;
+  margin: 0;
+}
+
+.YourPageStatSeparation p {
+  color: #777777;
+  margin: 5px 0;
+}
+
+.yourPageLikesViews {
+  background-color: #eeeeee;
+  height: 2px;
+  margin: 20px 0;
+}
+
+.LikesViews {
+  display: flex;
+  justify-content: space-between;
+  color: #555555;
+}
+
+.LikesViews span {
+  flex-grow: 1;
+  text-align: center;
+  font-weight: bold;
+}
+.LikesViewsLikes{
+  background-color: cornflowerblue;
+  padding: 10px;
+}
+.LikesViewsViews{
+  background-color: indianred;
+  padding: 10px;
+
+}
+
+.yourPage p {
+  color: #777777;
+  margin: 5px 0;
+}
