@@ -1,4 +1,4 @@
-import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {BaseEntity} from "@common/model/entity/base.entity";
 import { Credential } from "../../../../security";
 import {Publication} from "./publication.entity";
