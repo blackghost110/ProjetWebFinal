@@ -25,7 +25,7 @@ export class Publication extends BaseEntity {
 
     @ManyToOne(() => Credential, (credential) => credential.publications, {eager:false})
     @JoinColumn({referencedColumnName:'credential_id', name:'credential_id_fk'})
-    posteur: Credential
+    posteur: string // string au lieu de Credential ICIIIIIIIIIIII
 
     @OneToMany(()=>Commentaire, (commentaire)=> commentaire.commenteur, {cascade:true,eager:false})
     commentaires:Commentaire[];

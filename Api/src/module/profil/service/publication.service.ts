@@ -8,18 +8,18 @@ import {
 } from "../profil.exception";
 import {isNil} from "lodash";
 import {PublicationCreatePayload} from "../model/payload/publication-create.payload";
+import {Credential} from "../../../security";
 
 @Injectable()
 export class PublicationService {
     constructor(@InjectRepository(Publication) private readonly repository: Repository<Publication>) {}
-    async create(payload: PublicationCreatePayload): Promise<Publication> {
+    async create(user: Credential, payload: PublicationCreatePayload): Promise<Publication> {
         try {
-            const newPublication = Object.assign(new Publication(), Builder<Publication>()
+            return await this.repository.save(Builder<Publication>()
                 .contenu(payload.contenu)
                 .typePublication(payload.typePublication)
-                .posteur(payload.posteur)
+                .posteur(user.credential_id)
                 .build());
-            return await this.repository.save(newPublication);
         } catch (e) {
             throw new PublicationCreateException();
         }

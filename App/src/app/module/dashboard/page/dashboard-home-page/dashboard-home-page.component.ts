@@ -5,6 +5,8 @@ import {PostMainComponent} from "../../component/post-main/post-main.component";
 import {YourPageComponent} from "../../component/your-page/your-page.component";
 import {RecentActivityComponent} from "../../component/recent-activity/recent-activity.component";
 import {PublicationListComponent} from "../../component/publication-list/publication-list.component";
+import {PublicationCreateFormConfig} from "../../../../security/data";
+import {PublicationFormUtilsService} from "../../service/publication-form-utils.service";
 
 @Component({
   selector: 'app-dashboard-home-page',
@@ -14,5 +16,7 @@ import {PublicationListComponent} from "../../component/publication-list/publica
   styleUrls: ['./dashboard-home-page.component.scss']
 })
 export class DashboardHomePageComponent {
+
+  readonly config: PublicationCreateFormConfig = PublicationFormUtilsService.publicationCreateFormConfig();
 
 }
