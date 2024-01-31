@@ -1,0 +1,27 @@
+import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
+import {BaseEntity} from "@common/model/entity/base.entity";
+import { Credential } from "../../../../security";
+import {Publication} from "./publication.entity";
+import {Jaime} from "./jaime.entity";
+
+
+@Entity()
+export class Commentaire extends BaseEntity {
+    @PrimaryGeneratedColumn("uuid")
+    idCommentaire: string;
+
+    @Column({length: 50, nullable: true})
+    contenu: string;
+
+    @ManyToOne(() => Publication, {cascade: true, eager: true})
+    @JoinColumn({referencedColumnName: 'idPublication', name: 'idPublication_fk'})
+    publication: Publication;
+
+    @ManyToOne(() => Credential, (credential) => credential.commentaires, {eager:false})
+    @JoinColumn({referencedColumnName:'credential_id', name:'credential_id_fk'})
+    commenteur: Credential
+
+    @OneToMany(
+        ()=>Jaime, (jaime)=> jaime.jaimeur, {cascade:true,eager:false})
+    jaimes:Jaime[];
+}

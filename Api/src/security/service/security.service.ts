@@ -8,7 +8,7 @@ import {
     SignupException,
     UserAlreadyExistException,
     UserNotFoundException
-                            } from "../security.exception";
+} from "../security.exception";
 import {RefreshTokenPayload, SignInPayload, SignupPayload, Credential, Token} from "../model";
 import {comparePassword, encryptPassword} from "../utils/password.encoder";
 import {Builder} from "builder-pattern";
@@ -16,7 +16,7 @@ import {Builder} from "builder-pattern";
 @Injectable()
 export class SecurityService {
     constructor(@InjectRepository(Credential) private readonly repository: Repository<Credential>,
-                                              private readonly tokenService: TokenService) {
+                private readonly tokenService: TokenService) {
     }
 
     // soit detail(credential_id: string)

@@ -1,12 +1,12 @@
 import {
     Column,
     CreateDateColumn,
-    Entity,
+    Entity, JoinColumn, OneToMany, OneToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from 'typeorm';
 import {Exclude} from "class-transformer";
-
+import {Commentaire, Jaime, Profil, Publication} from "../../../module/profil/model/entity";
 @Entity()
 export class Credential {
     @PrimaryGeneratedColumn("uuid")
@@ -31,6 +31,20 @@ export class Credential {
     @UpdateDateColumn()
     updated: Date;
 
+    @OneToOne(() => Profil, {cascade: true, eager: true})
+    @JoinColumn({referencedColumnName: 'idProfil', name: 'idProfil_fk'})
+    profil: Profil;
 
+    @OneToMany(
+        ()=>Publication, (publication)=> publication.posteur, {cascade:true,eager:true})
+    publications:Publication[];
+
+    @OneToMany(
+        ()=>Commentaire, (commentaire)=> commentaire.commenteur, {cascade:true,eager:true})
+    commentaires:Commentaire[];
+
+    @OneToMany(
+        ()=>Jaime, (jaime)=> jaime.jaimeur, {cascade:true,eager:true})
+    jaimes:Jaime[];
 
 }
