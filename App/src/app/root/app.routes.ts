@@ -3,6 +3,7 @@ import {DashboardGuard} from "../security/guard/dashboard.guard";
 import {AppNode} from "../shared/routes/enum/node.enum";
 
 export const routes: Routes = [
+
   {
     path: '',
     redirectTo: AppNode.PUBLIC, pathMatch: 'full'
@@ -14,8 +15,8 @@ export const routes: Routes = [
   },
 
   {
-    path: AppNode.AUTHENTICATED, // rediriger ici
-    canActivate: [DashboardGuard('account')],
+    path: AppNode.AUTHENTICATED,
+    //canActivate: [DashboardGuard()],
     loadChildren: () => import('@dashboard').then(r => r.dashboardRoutes)
   },
 
