@@ -17,6 +17,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 export class PostMainComponent {
 
 
+
   private readonly publicationService: PublicationService = inject(PublicationService);
 
   @Input({required: true}) config!: PublicationCreateFormConfig;
@@ -25,6 +26,8 @@ export class PostMainComponent {
   save(): void {
     this.error$.set('');
     const payload: PublicationCreatePayload = {
+      typePublication: 'text',
+      poster: {},
       ...this.config.formGroup.value
     };
 

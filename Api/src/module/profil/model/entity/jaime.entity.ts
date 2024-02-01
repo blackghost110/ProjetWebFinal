@@ -10,7 +10,7 @@ export class Jaime extends BaseEntity {
     @PrimaryGeneratedColumn("uuid")
     idLike: string;
 
-    @ManyToOne(() => Credential, (credential) => credential.publications, {eager:false})
+    @ManyToOne(() => Credential, /*(credential) => credential.publications*/ {eager:false})
     @JoinColumn({referencedColumnName:'credential_id', name:'credential_id_fk'})
     jaimeur: Credential
 

@@ -1,60 +1,39 @@
 
-<div class="post">
-  <div class="post__avatar">
-    <img src="https://cdn-icons-png.flaticon.com/256/11172/11172308.png" alt=""/>
-  </div>
 
-  <div class="post__body">
-    <div class="post__header">
-      <div class="post__headerText">
-        <h3>Emmanuel Gouda</h3>
-        <span>at 11:47</span>
-      </div>
-      <div class="post__headerDescription">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-      </div>
+<ng-container>
+
+  <div class="post" *ngFor="let publication of publicationService.list$()">
+    <div class="post__avatar">
+      <img src="https://cdn-icons-png.flaticon.com/256/11172/11172308.png" alt=""/>
     </div>
-    <img src="https://www.motortrend.com/uploads/2022/09/Ram_1500_Subaru_Outback_AI_2.jpg" alt=""/>
-    <div class="post__footer">
-      <a href="">
-        <img src="https://cdn-icons-png.flaticon.com/128/1077/1077035.png" alt="">
-      </a>
-      <a href="">
-        <img src="https://cdn-icons-png.flaticon.com/128/3193/3193015.png" alt="">
-      </a>
-    </div>
-  </div>
-</div>
 
-<!--
-<div class="post">
-  <div class="post__avatar">
-    <img src="https://cdn-icons-png.flaticon.com/256/11172/11172308.png" alt=""/>
-  </div>
-
-  <div class="post__body">
-    <div class="post__header">
-      <div class="post__headerText">
-        <h3>Emmanuel Gouda</h3>
-        <span>at 11:47</span>
+    <div class="post__body">
+      <div class="post__header">
+        <div class="post__headerText">
+          <ng-container *ngIf="publicationService.publicationUsername$() as profile">
+          <h3>{{publication.idPublication}}</h3>
+          </ng-container>
+          <span>at {{publication.date_de_publication}}</span>
+        </div>
+        <div class="post__headerDescription">
+          <p>
+            {{publication.contenu}}
+          </p>
+        </div>
       </div>
-      <div class="post__headerDescription">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+      <img src="https://www.motortrend.com/uploads/2022/09/Ram_1500_Subaru_Outback_AI_2.jpg" alt=""/>
+      <div class="post__footer">
+        <a href="">
+          <img src="https://cdn-icons-png.flaticon.com/128/1077/1077035.png" alt="">
+        </a>
+        <a href="">
+          <img src="https://cdn-icons-png.flaticon.com/128/3193/3193015.png" alt="">
+        </a>
+        <button class="postBox_postBoutton" >Afficher</button>
       </div>
     </div>
-    <img src="https://www.probuilder.com/sites/default/files/imce-uploads/user/Alabama.jpeg" alt=""/>
-    <div class="post__footer">
-      <a href="">
-        <img src="https://cdn-icons-png.flaticon.com/128/1077/1077035.png" alt="">
-      </a>
-      <a href="">
-        <img src="https://cdn-icons-png.flaticon.com/128/3193/3193015.png" alt="">
-      </a>
-    </div>
   </div>
-</div>
 
-!-->
+
+</ng-container>
+

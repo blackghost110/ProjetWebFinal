@@ -4,5 +4,9 @@ export enum ApiURI{
   ME='account/me',
   REFRESH_TOKEN = 'account/refresh',
 
-  PUBLICATION = 'publication/create'
+  PUBLICATION_CREATE = 'publication/create',
+  PUBLICATION_LIST = 'publication/list',
+  PUBLICATION_DETAIL = 'publication/publication-detail',
+
+  PROFIL_LIST = 'profil/profil-detail'
 }

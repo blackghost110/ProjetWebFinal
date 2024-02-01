@@ -12,13 +12,16 @@ import {
     ProfilNotFoundException, ProfilUpdateException
 } from "../profil.exception";
 import {ProfilUpdatePayload} from "../model/payload/profil-update.payload";
+import {Credential} from "../../../security";
 
 @Injectable()
 export class ProfilService {
-    constructor(@InjectRepository(Profil) private readonly repository: Repository<Profil>) {}
-    async create(payload: ProfilCreatePayload): Promise<Profil> {
+    constructor(@InjectRepository(Profil) private readonly repository: Repository<Profil>,
+                @InjectRepository(Credential) private readonly credentialRepository: Repository<Credential>) {}
+    async create(user:Credential, payload: ProfilCreatePayload): Promise<Profil> {
         try {
             const newProfil = Object.assign(new Profil(), Builder<Profil>()
+                .credential_id(user.credential_id)
                 .nom(payload.nom)
                 .prenom(payload.prenom)
                 .description(payload.description)
@@ -37,6 +40,14 @@ export class ProfilService {
             return result;
         }
         throw new ProfilNotFoundException();
+    }
+
+    async profilDetail(user:Credential): Promise<Profil> {
+        const result = await this.repository.findOneBy({credential_id: user.credential_id});
+        if (!(isNil(result))) {
+            return result;
+        }
+        throw "Error";
     }
 
     async getAll(): Promise<Profil[]> {

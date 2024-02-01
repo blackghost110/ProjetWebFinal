@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import {InjectRepository} from "@nestjs/typeorm";
 import {Publication} from "../model/entity";
-import {Repository} from "typeorm";
+import {FindManyOptions, Repository} from "typeorm";
 import {Builder} from "builder-pattern";
 import {
     PublicationCreateException, PublicationDeleteException, PublicationListException, PublicationNotFoundException
@@ -18,7 +18,7 @@ export class PublicationService {
             return await this.repository.save(Builder<Publication>()
                 .contenu(payload.contenu)
                 .typePublication(payload.typePublication)
-                .posteur(user.credential_id)
+                .credential_id(user.credential_id)
                 .build());
         } catch (e) {
             throw new PublicationCreateException();
@@ -54,7 +54,20 @@ export class PublicationService {
 
 
 
+    async publicationDetail(id:string): Promise<Publication[]> {
+        const options: FindManyOptions<Publication> = {
+            where: { credential_id: id },
+        };
 
+        const results = await this.repository.find(options);
+
+        if (results.length > 0) {
+            return results;
+        }
+
+        // Exception here
+        throw new Error('Aucune publication trouvée pour l\'identifiant de la credential fourni.');
+    }
 
 
     async detail(id: string): Promise<Publication> {

@@ -1,9 +1,10 @@
 import {
     Column,
-    Entity,
+    Entity, JoinColumn, OneToOne,
     PrimaryGeneratedColumn
 } from "typeorm";
 import {BaseEntity} from "@common/model/entity/base.entity";
+import {Credential} from "../../../../security";
 
 
 
@@ -29,6 +30,10 @@ export class Profil extends BaseEntity {
 
     @Column({length: 34, nullable: true})
     email: string;
+
+    @OneToOne(() => Credential, {eager: true})
+    @JoinColumn({referencedColumnName: 'credential_id', name: 'credential_id'})
+    credential_id: string;
 
 
 }

@@ -14,11 +14,11 @@ export enum SignInUpFormType {
 
 
 export enum PublicationCreateFormFieldEnum {
-  CONTENU = 'CONTENU',
+  CONTENU = 'contenu',
 }
 
 export enum PublicationCreateType {
-  TEXT ='TEXT',
+  TEXT ='text',
   IMAGE ='IMAGE',
   VIDEO ='VIDEO'
 }

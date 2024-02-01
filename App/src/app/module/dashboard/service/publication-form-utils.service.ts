@@ -13,7 +13,7 @@ export class PublicationFormUtilsService {
 
   public static publicationCreateFormGroup(): FormGroup {
     return new FormGroup<any>({
-      contenu: new FormControl<string>('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+      [PublicationCreateFormFieldEnum.CONTENU]: new FormControl<string>('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
     })
   }
 
@@ -30,7 +30,7 @@ export class PublicationFormUtilsService {
   public static getContenuField(formGroup: FormGroup): PublicationCreateField {
     return {
       inputType: 'text',
-      placeHolder: 'What\'s happening ?',
+      placeHolder: 'What\'s happening ??',
       control: PublicationFormUtilsService.getFormControl(formGroup, PublicationCreateFormFieldEnum.CONTENU)
     }
   }

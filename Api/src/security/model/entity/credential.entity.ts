@@ -31,20 +31,20 @@ export class Credential {
     @UpdateDateColumn()
     updated: Date;
 
-    @OneToOne(() => Profil, {cascade: true, eager: true})
+    @OneToOne(() => Profil, {cascade: true, eager: false})
     @JoinColumn({referencedColumnName: 'idProfil', name: 'idProfil_fk'})
     profil: Profil;
 
     @OneToMany(
-        ()=>Publication, (publication)=> publication.posteur, {cascade:true,eager:true})
+        ()=>Publication, (publication)=> publication.credential_id ,{eager:false})
     publications:Publication[];
 
     @OneToMany(
-        ()=>Commentaire, (commentaire)=> commentaire.commenteur, {cascade:true,eager:true})
+        ()=>Commentaire, (commentaire)=> commentaire.commenteur, {cascade:true,eager:false})
     commentaires:Commentaire[];
 
     @OneToMany(
-        ()=>Jaime, (jaime)=> jaime.jaimeur, {cascade:true,eager:true})
+        ()=>Jaime, (jaime)=> jaime.jaimeur, {cascade:true,eager:false})
     jaimes:Jaime[];
 
 }

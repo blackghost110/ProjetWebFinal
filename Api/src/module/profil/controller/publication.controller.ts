@@ -20,6 +20,11 @@ export class PublicationController {
     detail(@Param('id') id: string): Promise<Publication> {
         return this.service.detail(id);
     }
+
+    @Get('publication-detail')
+    publicationDetail(@User() user :  Credential): Promise<Publication[]> {
+        return this.service.publicationDetail(user.credential_id);
+    }
     @Get('list')
     getAll(): Promise<Publication[]> {
         return this.service.getAll();

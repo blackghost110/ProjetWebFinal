@@ -37,4 +37,8 @@ export class ProfilCreatePayload {
     @Length(1, 34)
     email: string;
 
+    @ApiProperty()
+    @IsOptional()
+    credential_id: string;
+
 }
