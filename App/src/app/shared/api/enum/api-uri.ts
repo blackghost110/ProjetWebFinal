@@ -8,5 +8,10 @@ export enum ApiURI{
   PUBLICATION_LIST = 'publication/list',
   PUBLICATION_DETAIL = 'publication/publication-detail',
 
-  PROFIL_LIST = 'profil/profil-detail'
+  PROFIL_LIST = 'profil/profil-detail',
+
+  COMMENTAIRE_CREATE = 'commentaire/create',
+  COMMENTAIRE_LIST = 'commentaire/list',
+  COMMENTAIRE_LIST_SELECTED = 'commentaire/list/:id'
+
 }

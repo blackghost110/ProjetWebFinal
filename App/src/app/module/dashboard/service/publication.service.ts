@@ -3,9 +3,9 @@ import {Observable, tap} from "rxjs";
 import {ApiURI} from "../../../shared/api/enum/api-uri";
 import {PublicationCreatePayload} from "../data/payload/publication-create.payload";
 import {ApiService} from "../../../shared/api/service/api.service";
-import {PublicationDto} from "../../model/publication.dto";
+import {PublicationDto} from "../model/publication.dto";
 import {ApiResponse} from "@shared";
-import {CredentialDto} from "../../model/credential.dto";
+import {CredentialDto} from "../model/credential.dto";
 
 @Injectable({
   providedIn: 'root'

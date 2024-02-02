@@ -1,25 +1,22 @@
 import {IsOptional, IsString, Length} from "class-validator";
 import {ApiProperty} from "@nestjs/swagger";
-import {Jaime, Publication} from "../entity";
-import {Credential} from "../../../../security";
+
 
 
 export class CommentaireCreatePayload {
     @ApiProperty()
     @IsString()
     @IsOptional()
-    @Length(1, 50)
+    @Length(1, 500)
     contenu: string;
 
     @ApiProperty()
     @IsOptional()
-    commenteur: Credential
+    credential_id: string;
 
     @ApiProperty()
     @IsOptional()
-    publication: Publication;
+    idPublication: string;
 
-    @ApiProperty()
-    @IsOptional()
-    jaimes:Jaime[];
+
 }

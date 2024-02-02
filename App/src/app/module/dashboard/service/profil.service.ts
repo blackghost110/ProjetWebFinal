@@ -3,7 +3,7 @@ import {ApiService} from "../../../shared/api/service/api.service";
 import {tap} from "rxjs";
 import {ApiURI} from "../../../shared/api/enum/api-uri";
 import {ApiResponse} from "@shared";
-import {ProfilDto} from "../../model/profil.dto";
+import {ProfilDto} from "../model/profil.dto";
 
 @Injectable({
     providedIn: 'root'

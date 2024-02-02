@@ -14,12 +14,12 @@ export class Commentaire extends BaseEntity {
     contenu: string;
 
     @ManyToOne(() => Publication, {cascade: true, eager: true})
-    @JoinColumn({referencedColumnName: 'idPublication', name: 'idPublication_fk'})
-    publication: Publication;
+    @JoinColumn({referencedColumnName: 'idPublication', name: 'idPublication'})
+    idPublication: string;
 
     @ManyToOne(() => Credential, (credential) => credential.commentaires, {eager:false})
-    @JoinColumn({referencedColumnName:'credential_id', name:'credential_id_fk'})
-    commenteur: Credential
+    @JoinColumn({referencedColumnName:'credential_id', name:'credential_id'})
+    credential_id: string
 
     @OneToMany(
         ()=>Jaime, (jaime)=> jaime.jaimeur, {cascade:true,eager:false})

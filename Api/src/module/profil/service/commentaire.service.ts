@@ -8,20 +8,18 @@ import {
 } from "../profil.exception";
 import {isNil} from "lodash";
 import {CommentaireCreatePayload} from "../model/payload/commentaire-create.payload";
+import {Credential} from "../../../security";
 
 @Injectable()
 export class CommentaireService {
     constructor(@InjectRepository(Commentaire) private readonly repository: Repository<Commentaire>) {}
-    async create(payload: CommentaireCreatePayload): Promise<Commentaire> {
+    async create(user: Credential, payload: CommentaireCreatePayload): Promise<Commentaire> {
         try {
-            const newCommentaire = Object.assign(new Commentaire(), Builder<Commentaire>()
+            return await this.repository.save(Builder<Commentaire>()
                 .contenu(payload.contenu)
-                .commenteur(payload.commenteur)
-                .publication(payload.publication)
-                .jaimes(payload.jaimes)
-
+                .credential_id(user.credential_id)
+                .idPublication(payload.idPublication)
                 .build());
-            return await this.repository.save(newCommentaire);
         } catch (e) {
             throw new CommentaireCreateException();
         }
@@ -37,6 +35,13 @@ export class CommentaireService {
     async getAll(): Promise<Commentaire[]> {
         try {
             return await this.repository.find();
+        } catch (e) {
+            throw new CommentaireListException();
+        }
+    }
+    async getAllById(idPublication: string): Promise<Commentaire[]> {
+        try {
+            return await this.repository.find({ where: { idPublication } });
         } catch (e) {
             throw new CommentaireListException();
         }

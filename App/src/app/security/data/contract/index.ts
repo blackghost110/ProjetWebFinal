@@ -25,3 +25,14 @@ export interface PublicationCreateField {
   inputType: string;
   control: FormControl;
 }
+
+export interface CommentaireCreateFormConfig {
+  formGroup: FormGroup;
+  //type: CommentaireCreateType,
+  fields: CommentaireCreateField[];
+}
+
+export interface CommentaireCreateField {
+  control: FormControl;
+}
+

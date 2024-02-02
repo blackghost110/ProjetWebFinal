@@ -27,12 +27,14 @@ export class PostMainComponent {
     this.error$.set('');
     const payload: PublicationCreatePayload = {
       typePublication: 'text',
-      poster: {},
+      posteur: {},
       ...this.config.formGroup.value
     };
 
     console.log('payload', payload);
     this.publicationService.publicationCreate(payload as PublicationCreatePayload).subscribe();
+    alert("Publication Postée")
+    window.location.reload();
   }
 
 

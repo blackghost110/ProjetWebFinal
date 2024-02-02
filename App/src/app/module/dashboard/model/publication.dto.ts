@@ -1,9 +1,9 @@
 import {CredentialDto} from "./credential.dto";
 
 export interface PublicationDto{
-    credential_id_fk: CredentialDto;
+    credential_id: CredentialDto;
     idPublication: string;
-    date_de_publication: string;
+    created: Date;
     contenu: string;
     typePublication: string;
 }

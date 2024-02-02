@@ -40,7 +40,7 @@ export class Credential {
     publications:Publication[];
 
     @OneToMany(
-        ()=>Commentaire, (commentaire)=> commentaire.commenteur, {cascade:true,eager:false})
+        ()=>Commentaire, (commentaire)=> commentaire.credential_id, {cascade:true,eager:false})
     commentaires:Commentaire[];
 
     @OneToMany(

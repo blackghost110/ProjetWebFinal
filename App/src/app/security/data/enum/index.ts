@@ -22,3 +22,7 @@ export enum PublicationCreateType {
   IMAGE ='IMAGE',
   VIDEO ='VIDEO'
 }
+
+export enum CommentaireCreateFormFieldEnum {
+  CONTENU = 'contenu',
+}
