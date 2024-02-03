@@ -4,7 +4,6 @@ export enum FormFieldEnum {
   PASSWORD = 'password',
   CONFIRMATION = 'confirmation',
   MAIL = 'mail'
-
 }
 
 export enum SignInUpFormType {
@@ -25,4 +24,18 @@ export enum PublicationCreateType {
 
 export enum CommentaireCreateFormFieldEnum {
   CONTENU = 'contenu',
+}
+
+export enum ProfilFieldEnum {
+  NOM = 'nom',
+  PRENOM = 'prenom',
+  DESCRIPTION = 'description',
+  EMAIL = 'email',
+  PHOTO_PROFIL = 'photoProfil',
+  STATUS = 'status'
+}
+
+export enum ProfilFormType {
+  UPDATE ='update',
+  CREATE = 'create'
 }

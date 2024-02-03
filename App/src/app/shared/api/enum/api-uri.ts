@@ -9,6 +9,7 @@ export enum ApiURI{
   PUBLICATION_DETAIL = 'publication/publication-detail',
 
   PROFIL_LIST = 'profil/profil-detail',
+  PROFIL_UPDATE = 'profil/update',
 
   COMMENTAIRE_CREATE = 'commentaire/create',
   COMMENTAIRE_LIST = 'commentaire/list',

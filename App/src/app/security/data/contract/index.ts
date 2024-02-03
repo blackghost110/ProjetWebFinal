@@ -1,5 +1,5 @@
 import {FormControl, FormGroup} from "@angular/forms";
-import {PublicationCreateType, SignInUpFormType} from "../enum";
+import {ProfilFormType, PublicationCreateType, SignInUpFormType} from "../enum";
 
 export interface SignInUpFormConfig {
   formGroup: FormGroup;
@@ -33,6 +33,19 @@ export interface CommentaireCreateFormConfig {
 }
 
 export interface CommentaireCreateField {
+  control: FormControl;
+}
+
+export interface ProfilUpdateFormConfig {
+  formGroup: FormGroup;
+  type: ProfilFormType,
+  fields: ProfilUpdateField[];
+}
+
+export interface ProfilUpdateField {
+  label: string;
+  placeHolder: string;
+  inputType: string;
   control: FormControl;
 }
 
