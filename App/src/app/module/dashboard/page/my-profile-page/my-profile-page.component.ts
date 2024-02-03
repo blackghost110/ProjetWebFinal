@@ -1,13 +1,10 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {SidebarComponent} from "../../component/sidebar/sidebar.component";
-import {PublicationService} from "../../service/publication.service";
 import {ProfilService} from "../../service/profil.service";
-import {CommentaireService} from "../../service/commentaire.service";
 import {ReactiveFormsModule} from "@angular/forms";
-import {CommentaireCreatePayload} from "../../data/payload/commentaire-create.payload";
 import {ProfilUpdatePayload} from "../../data/payload/profil-update.payload";
-import {ProfilUpdateFormConfig, SignInUpFormConfig} from "../../../../security/data";
+import {ProfilUpdateFormConfig} from "../../../../security/data";
 
 @Component({
   selector: 'app-my-profile-page',

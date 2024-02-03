@@ -4,7 +4,6 @@ import {Observable, tap} from "rxjs";
 import {ApiURI} from "../../../shared/api/enum/api-uri";
 import {ApiResponse} from "@shared";
 import {ProfilDto} from "../model/profil.dto";
-import {PublicationCreatePayload} from "../data/payload/publication-create.payload";
 import {ProfilUpdatePayload} from "../data/payload/profil-update.payload";
 
 @Injectable({

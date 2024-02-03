@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {
-  FormFieldEnum,
-  ProfilFieldEnum, ProfilFormType, ProfilUpdateField, ProfilUpdateFormConfig,
-  PublicationCreateField,
-  PublicationCreateFormConfig,
-  PublicationCreateFormFieldEnum,
-  PublicationCreateType, SignInUpField
+  ProfilFieldEnum, ProfilFormType, ProfilUpdateField, ProfilUpdateFormConfig
 } from "../../../security/data";
 
 @Injectable({
