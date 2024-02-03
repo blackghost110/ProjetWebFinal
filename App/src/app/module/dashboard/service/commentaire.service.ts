@@ -15,7 +15,8 @@ export class CommentaireService {
 
 
 
-  listComs$:WritableSignal<CommentaireDto[]> = signal([]);
+  listComsPubli$:WritableSignal<CommentaireDto[]> = signal([]);
+  listComsUser$:WritableSignal<CommentaireDto[]> = signal([]);
 
   //publicationUsername$:WritableSignal<CredentialDto> = signal({username: ""});
 
@@ -25,7 +26,14 @@ export class CommentaireService {
 
   public CommentaireList(idPublication: string): void {
     this.api.get(`${ApiURI.COMMENTAIRE_LIST}/${idPublication}`).pipe(tap((response:ApiResponse)=>{
-      this.listComs$.set(response.data);
+      this.listComsPubli$.set(response.data);
+      console.log(response);
+    })).subscribe()
+  }
+
+  public CommentaireListUser(): void {
+    this.api.get(ApiURI.COMMENTAIRE_LIST_USER).pipe(tap((response:ApiResponse)=>{
+      this.listComsUser$.set(response.data);
       console.log(response);
     })).subscribe()
   }

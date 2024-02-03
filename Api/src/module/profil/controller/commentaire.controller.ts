@@ -25,8 +25,12 @@ export class CommentaireController {
         return this.service.getAll();
     }
     @Get('list/:idPublication')
-    getAllById(@Param('idPublication') idPublication: string): Promise<Commentaire[]> {
-        return this.service.getAllById(idPublication);
+    getAllByIdPublication(@Param('idPublication') idPublication: string): Promise<Commentaire[]> {
+        return this.service.getAllByIdPublication(idPublication);
+    }
+    @Get('list-user')
+    getAllByUser(@User() user :  Credential): Promise<Commentaire[]> {
+        return this.service.getAllByUser(user.credential_id);
     }
     @Delete('delete/:id')
     delete(@Param('id') id: string): Promise<void> {

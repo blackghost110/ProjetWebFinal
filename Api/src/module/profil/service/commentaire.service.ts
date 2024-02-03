@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import {InjectRepository} from "@nestjs/typeorm";
 import {Commentaire} from "../model/entity";
-import {Repository} from "typeorm";
+import {FindManyOptions, Repository} from "typeorm";
 import {Builder} from "builder-pattern";
 import {
     CommentaireCreateException, CommentaireDeleteException, CommentaireListException, CommentaireNotFoundException,
@@ -39,12 +39,26 @@ export class CommentaireService {
             throw new CommentaireListException();
         }
     }
-    async getAllById(idPublication: string): Promise<Commentaire[]> {
+    async getAllByIdPublication(idPublication: string): Promise<Commentaire[]> {
         try {
             return await this.repository.find({ where: { idPublication } });
         } catch (e) {
             throw new CommentaireListException();
         }
+    }
+    async getAllByUser(id:string): Promise<Commentaire[]> {
+        const coms: FindManyOptions<Commentaire> = {
+            where: { credential_id: id },
+        };
+
+        const results = await this.repository.find(coms);
+
+        if (results.length > 0) {
+            return results;
+        }
+
+        // Exception here
+        throw new Error('Aucun commentaire trouvé pour l\'identifiant de la credential fourni.');
     }
 
     async delete(id: string): Promise<void> {

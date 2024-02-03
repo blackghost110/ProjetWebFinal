@@ -6,34 +6,22 @@
 
   <div class="myProfilePage">
     <div class="middle">
-      <h2>Mon profil</h2>
-      <div class="myProfileComplet">
-        <div class="myProfileDiv" [formGroup]="config.formGroup">
-          <ng-container *ngFor="let field of config.fields">
-          <label>{{field.label}}</label>
-          <input [type]="field.inputType"
-                 [formControl]="field.control"
-                 autocomplete="false"
-                 [placeholder]="field.placeHolder"/>
-          </ng-container>
-        </div>
-        <button class="repondreCommentaireBouton" (click)="modifier()">Modifier</button>
-      </div>
+    <app-update-profil [config]="config" ></app-update-profil>
     </div>
-
 
     <ng-container *ngIf="profilService.profil$() as profile">
       <div class="middle">
         <div class="myProfileComplet2">
           <div class="myProfileImg">
-            <p>Photo de profil</p>
-            <img src="https://cdn-icons-png.flaticon.com/256/11172/11172308.png" alt="">
+            <!--<img src="https://cdn-icons-png.flaticon.com/256/11172/11172308.png" alt="">-->
+            <img src="{{profile.photoProfil}}" alt="">
           </div>
 
           <div class="myProfileAffichage">
             <p>Nom : {{profile.nom}}</p>
             <p>Prenom : {{profile.prenom}}</p>
             <p>Description : {{profile.description}}</p>
+            <p>Status : {{profile.status}}</p>
             <p>Email : {{profile.email}}</p>
           </div>
         </div>

@@ -8,4 +8,5 @@ export interface ProfilUpdatePayload extends Payload{
   status: string;
   photoProfil: string;
   email: string;
+  credential_id:string
 }

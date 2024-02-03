@@ -72,6 +72,20 @@ export class ProfilService {
             throw new ProfilUpdateException();
         }
     }
+    async updateUser(user:Credential, payload: ProfilUpdatePayload): Promise<Profil> {
+        try {
+            let detail = await this.repository.findOneBy({credential_id: user.credential_id});
+            detail.nom = payload.nom;
+            detail.prenom = payload.prenom;
+            detail.description = payload.description;
+            detail.status = payload.status;
+            detail.photoProfil = payload.photoProfil;
+            detail.email = payload.email;
+            return await this.repository.save(detail);
+        } catch (e) {
+            throw new ProfilUpdateException();
+        }
+    }
 
     async delete(id: string): Promise<void> {
         try {

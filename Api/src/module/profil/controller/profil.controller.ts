@@ -22,6 +22,10 @@ export class ProfilController {
     update(@Body() payload: ProfilUpdatePayload): Promise<Profil> {
         return this.service.update(payload);
     }
+    @Put('update-user')
+    updateUser(@User() user :  Credential, @Body() payload: ProfilUpdatePayload): Promise<Profil> {
+        return this.service.updateUser(user, payload);
+    }
     @Get('detail/:id')
     detail(@Param('id') id: string): Promise<Profil> {
         return this.service.detail(id);

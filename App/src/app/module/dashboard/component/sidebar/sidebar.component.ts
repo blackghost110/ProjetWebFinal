@@ -22,11 +22,14 @@ export class SidebarComponent {
         this.router.navigate(["account/", AppNode.SIGN_IN]).then();
     }
 
-    redirectProfil() {
-        this.router.navigate(["dashboard/", AppNode.PROFIL]).then();
-    }
+  redirectProfil(): void  {
+    this.router.navigate([AppNode.PROFIL]).then();
+  }
 
-  redirectAcceuil() {
+  /*redirectAcceuil() {
     this.router.navigate(["dashboard/", AppNode.AUTHENTICATED]).then();
+  }*/
+  redirectAcceuil() {
+    this.router.navigate([AppNode.AUTHENTICATED]).then();
   }
 }

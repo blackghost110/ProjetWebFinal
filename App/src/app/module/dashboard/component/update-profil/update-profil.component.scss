@@ -1,0 +1,49 @@
+.middleProfil {
+  background-color: #fff; /* Fond blanc */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 600px; /* Largeur maximale pour une meilleure lisibilité */
+  margin: 50px auto; /* Centrer horizontalement */
+}
+
+h2 {
+  color: #333;
+  text-align: center;
+}
+
+.myProfileComplet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.myProfileDiv {
+  margin-bottom: 20px;
+}
+
+.myProfileDiv label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.myProfileDiv input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+
+.repondreCommentaireBouton {
+  border: none;
+  background-color: #45a049;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}

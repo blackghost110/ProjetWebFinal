@@ -11,8 +11,9 @@ export const dashboardRoutes: Routes = [
         loadComponent: () => import('./page/dashboard-home-page/dashboard-home-page.component').then(c => c.DashboardHomePageComponent)
       },
       {
-        path: 'home2',
-        loadComponent: () => import('./page/my-profile-page/my-profile-page.component').then(c => c.MyProfilePageComponent)
+        path: 'profil',
+        loadChildren: () => import('./profil.routes')
+          .then(c => c.profilRoutes)
       },
 
 

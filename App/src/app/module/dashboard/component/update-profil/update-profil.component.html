@@ -1,1 +1,15 @@
-<p>update-profil works!</p>
+<div class="middleProfil">
+  <h2>Mon profil</h2>
+  <div class="myProfileComplet">
+    <div class="myProfileDiv" [formGroup]="config.formGroup">
+      <ng-container *ngFor="let field of config.fields">
+        <label>{{field.label}}</label>
+        <input [type]="field.inputType"
+               [formControl]="field.control"
+               autocomplete="false"
+               [placeholder]="field.placeHolder"/>
+      </ng-container>
+    </div>
+    <button class="repondreCommentaireBouton" (click)="modifier()">Modifier</button>
+  </div>
+</div>

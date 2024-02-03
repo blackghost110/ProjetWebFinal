@@ -35,7 +35,7 @@ export class ProfilService {
     }
 
   public profilUpdate(payload: ProfilUpdatePayload): Observable<any> {
-    return this.api.put(ApiURI.PROFIL_UPDATE, payload);
+    return this.api.put(ApiURI.PROFIL_UPDATE_USER, payload);
   }
 
 }

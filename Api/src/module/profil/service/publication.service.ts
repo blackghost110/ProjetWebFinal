@@ -26,34 +26,6 @@ export class PublicationService {
     }
 
 
-    /*
-        async create(payload: PublicationCreatePayload): Promise<Publication> {
-            try {
-                const newPublication = Object.assign(new Publication(), Builder<Publication>()
-                    .contenu(payload.contenu)
-                    .typePublication(payload.typePublication)
-                    .posteur(payload.posteur)
-                    .commentaires(payload.commentaires)
-                    .jaimes(payload.jaimes)
-                    .build());
-                return await this.repository.save(newPublication);
-            } catch (e) {
-                throw new PublicationCreateException();
-            }
-        }
-
-        */
-
-
-
-
-
-
-
-
-
-
-
     async publicationDetail(id:string): Promise<Publication[]> {
         const options: FindManyOptions<Publication> = {
             where: { credential_id: id },

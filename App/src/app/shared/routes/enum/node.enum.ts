@@ -6,7 +6,7 @@ export enum AppNode {
   MEMBER = 'member',
   DETAIL = 'detail/:id',
   SIGN_IN = 'sign-in',
-  PROFIL = 'home2',
+  PROFIL = 'dashboard/profil',
   SIGN_UP = 'sign-up',
   FALL_BACK = '**',
 
