@@ -1,15 +1,21 @@
 <div class="yourPage">
   <h2>Recent Activity</h2>
+
   <div class="yourPageStatRecent">
+
     <div class="YourPageStatSeparation">
-      <p> 10 hours ago</p>
-      <p>Commented on Video posted</p>
-      <p>by Andrew COBRA Tate</p>
+      <p>Dernier Commentaire publié :</p>
+      <p>par Andrew COBRA Tate</p>
+      <p>il y a 10 heures</p>
     </div>
+
     <div class="YourPageStatSeparation">
-      <p> 10 hours ago</p>
-      <p>Commented on Video posted</p>
-      <p>by Andrew COBRA Tate</p>
+      <p>Dernière Publication publiée :</p>
+      <p>Par Andrew COBRA Tate</p>
+
+        <!--<p>Il y a {{publicationService.list$().at(0)?.created | date: 'dd-MM-yyyy HH:mm'}}</p> -->
+        <p>Il y a {{publicationService.list$().at(0)}}</p>
     </div>
+
   </div>
 </div>

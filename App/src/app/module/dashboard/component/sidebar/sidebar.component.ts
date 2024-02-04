@@ -31,5 +31,7 @@ export class SidebarComponent {
   }*/
   redirectAcceuil() {
     this.router.navigate([AppNode.AUTHENTICATED]).then();
+    window.location.reload();
+    window.scrollTo(0, 0);
   }
 }

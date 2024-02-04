@@ -44,7 +44,7 @@ export class Credential {
     commentaires:Commentaire[];
 
     @OneToMany(
-        ()=>Jaime, (jaime)=> jaime.jaimeur, {cascade:true,eager:false})
+        ()=>Jaime, (jaime)=> jaime.credential_id, {cascade:true,eager:false})
     jaimes:Jaime[];
 
 }

@@ -1,23 +1,25 @@
 import { Injectable } from '@nestjs/common';
 import {InjectRepository} from "@nestjs/typeorm";
-import {Jaime} from "../model/entity";
+import {Commentaire, Jaime} from "../model/entity";
 import {Repository} from "typeorm";
 import {Builder} from "builder-pattern";
 import {
+    CommentaireListException,
     JaimeCreateException, JaimeDeleteException, JaimeListException, JaimeNotFoundException,
 } from "../profil.exception";
 import {isNil} from "lodash";
 import {JaimeCreatePayload} from "../model/payload/jaime-create.payload";
+import {Credential} from "../../../security";
 
 @Injectable()
 export class JaimeService {
     constructor(@InjectRepository(Jaime) private readonly repository: Repository<Jaime>) {}
-    async create(payload: JaimeCreatePayload): Promise<Jaime> {
+    async create(user: Credential, payload: JaimeCreatePayload): Promise<Jaime> {
         try {
             const newJaime = Object.assign(new Jaime(), Builder<Jaime>()
-                .jaimeur(payload.jaimeur)
-                .publication(payload.publication)
-                .commentaire(payload.commentaire)
+                .credential_id(user.credential_id)
+                .idPublication(payload.idPublication)
+                .idCommentaire(payload.idCommentaire)
                 .build());
             return await this.repository.save(newJaime);
         } catch (e) {
@@ -35,6 +37,13 @@ export class JaimeService {
     async getAll(): Promise<Jaime[]> {
         try {
             return await this.repository.find();
+        } catch (e) {
+            throw new JaimeListException();
+        }
+    }
+    async getAllByIdPublication(idPublication: string): Promise<Jaime[]> {
+        try {
+            return await this.repository.find({ where: { idPublication } });
         } catch (e) {
             throw new JaimeListException();
         }

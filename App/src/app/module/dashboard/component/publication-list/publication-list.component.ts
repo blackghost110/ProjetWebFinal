@@ -1,4 +1,4 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {PublicationService} from "../../service/publication.service";
 import {ProfilService} from "../../service/profil.service";
@@ -6,6 +6,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommentaireCreatePayload} from "../../data/payload/commentaire-create.payload";
 import {CommentaireService} from "../../service/commentaire.service";
 import {CommentaireCreateFormConfig} from "../../../../security/data";
+import {JaimeCreatePayload} from "../../data/payload/jaime-create.payload";
+import {JaimeService} from "../../service/jaime.service";
 
 
 
@@ -16,7 +18,7 @@ import {CommentaireCreateFormConfig} from "../../../../security/data";
   templateUrl: './publication-list.component.html',
   styleUrls: ['./publication-list.component.scss']
 })
-export class PublicationListComponent {
+export class PublicationListComponent implements OnInit{
 
   @Input({required: true}) config!: CommentaireCreateFormConfig;
 
@@ -24,21 +26,17 @@ export class PublicationListComponent {
   readonly publicationService: PublicationService = inject(PublicationService);
   readonly profilService: ProfilService = inject(ProfilService);
   readonly commentaireService: CommentaireService = inject(CommentaireService)
+  readonly jaimeService: JaimeService = inject(JaimeService);
 
 
 
   ngOnInit(): void {
     this.publicationService.publicationList();
     this.profilService.profilGet();
-    this.publicationService.publicationDetail();
+    //this.jaimeService.jaimePublicationList();
 
 
   }
-
-
-
-    // afficherCom(id_publication:string) ---> afficherCom(id_publication:string) ---> BACKEND :afficherCom(id_publication:string) WHERE id_publication = id_publication
-
 
 
 
@@ -54,7 +52,14 @@ export class PublicationListComponent {
 
   }
 
-
-
-
+  jaimePublication(idPublication: string) {
+    const payload: JaimeCreatePayload = {
+      credential_id: {},
+      idPublication,
+      ...this.config.formGroup.value
+    };
+    console.log('payload', payload);
+    this.jaimeService.jaimeCreate(payload as JaimeCreatePayload).subscribe();
+    alert("Publication Aimé");
+  }
 }

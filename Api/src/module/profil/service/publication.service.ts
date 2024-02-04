@@ -26,7 +26,7 @@ export class PublicationService {
     }
 
 
-    async publicationDetail(id:string): Promise<Publication[]> {
+    async getAllByUser(id:string): Promise<Publication[]> {
         const options: FindManyOptions<Publication> = {
             where: { credential_id: id },
         };

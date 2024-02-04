@@ -10,16 +10,16 @@ export class Jaime extends BaseEntity {
     @PrimaryGeneratedColumn("uuid")
     idLike: string;
 
-    @ManyToOne(() => Credential, /*(credential) => credential.publications*/ {eager:false})
-    @JoinColumn({referencedColumnName:'credential_id', name:'credential_id_fk'})
-    jaimeur: Credential
+    @ManyToOne(() => Credential, {eager:false})
+    @JoinColumn({referencedColumnName:'credential_id', name:'credential_id'})
+    credential_id: string
 
     @ManyToOne(() => Publication, {cascade: true, eager: false})
-    @JoinColumn({referencedColumnName: 'idPublication', name: 'idPublication_fk'})
-    publication: Publication;
+    @JoinColumn({referencedColumnName: 'idPublication', name: 'idPublication'})
+    idPublication: string;
 
     @ManyToOne(() => Commentaire, {cascade: true, eager: false})
-    @JoinColumn({referencedColumnName: 'idCommentaire', name: 'idCommentaire_fk'})
-    commentaire: Commentaire;
+    @JoinColumn({referencedColumnName: 'idCommentaire', name: 'idCommentaire'})
+    idCommentaire: string;
 
 }

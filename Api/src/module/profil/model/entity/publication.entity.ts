@@ -30,7 +30,7 @@ export class Publication extends BaseEntity {
     @OneToMany(()=>Commentaire, (commentaire)=> commentaire.credential_id, {cascade:true,eager:false})
     commentaires:Commentaire[];
 
-    @OneToMany(()=>Jaime, (jaime)=> jaime.jaimeur, {cascade:true,eager:false})
+    @OneToMany(()=>Jaime, (jaime)=> jaime.credential_id, {cascade:true,eager:false})
     jaimes:Jaime[];
 
 }

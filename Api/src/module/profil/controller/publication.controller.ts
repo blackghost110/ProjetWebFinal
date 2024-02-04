@@ -21,9 +21,9 @@ export class PublicationController {
         return this.service.detail(id);
     }
 
-    @Get('publication-detail')
+    @Get('list-user')
     publicationDetail(@User() user :  Credential): Promise<Publication[]> {
-        return this.service.publicationDetail(user.credential_id);
+        return this.service.getAllByUser(user.credential_id);
     }
     @Get('list')
     getAll(): Promise<Publication[]> {

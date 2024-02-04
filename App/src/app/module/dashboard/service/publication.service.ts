@@ -17,8 +17,9 @@ export class PublicationService {
 
   // Signal
   list$:WritableSignal<PublicationDto[]> = signal([]);
+  listPubliUser$:WritableSignal<PublicationDto[]> = signal([]);
 
-  publicationUsername$:WritableSignal<CredentialDto> = signal({username: ""});
+  //publicationUsername$:WritableSignal<CredentialDto> = signal({username: ""});
 
   public publicationCreate(payload: PublicationCreatePayload): Observable<any> {
     return this.api.post(ApiURI.PUBLICATION_CREATE, payload);
@@ -30,11 +31,10 @@ export class PublicationService {
     })).subscribe()
   }
 
-  public publicationDetail():void {
-    this.api.get(ApiURI.PUBLICATION_DETAIL).pipe(tap((response:ApiResponse)=>{
-      //améliorer voir les notes de cours
-      this.publicationUsername$.set(response.data);
-      //console.log(response);
+  public getPublicationListUser():void {
+    this.api.get(ApiURI.PUBLICATION_LIST_USER).pipe(tap((response:ApiResponse)=>{
+      this.listPubliUser$.set(response.data);
+      console.log(response);
     })).subscribe();
   }
 

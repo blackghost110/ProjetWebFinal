@@ -7,13 +7,13 @@ import {Credential} from "../../../../security";
 export class JaimeCreatePayload {
     @ApiProperty()
     @IsOptional()
-    jaimeur: Credential;
+    credential_id: string;
 
     @ApiProperty()
     @IsOptional()
-    publication: Publication;
+    idPublication: string;
 
     @ApiProperty()
     @IsOptional()
-    commentaire: Commentaire;
+    idCommentaire: string;
 }

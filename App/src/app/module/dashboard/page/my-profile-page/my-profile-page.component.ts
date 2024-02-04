@@ -6,6 +6,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {ProfilUpdateFormConfig} from "../../../../security/data";
 import {UpdateProfilComponent} from "../../component/update-profil/update-profil.component";
 import {ProfilFormUtilsService} from "../../service/profil-form-utils.service";
+import {PublicationService} from "../../service/publication.service";
 
 @Component({
   selector: 'app-my-profile-page',
@@ -16,12 +17,15 @@ import {ProfilFormUtilsService} from "../../service/profil-form-utils.service";
 })
 export class MyProfilePageComponent implements OnInit{
 
+  readonly config: ProfilUpdateFormConfig = ProfilFormUtilsService.profilUpdateFormConfig();
+
   ngOnInit(): void {
     this.profilService.profilGet();
   }
   readonly profilService: ProfilService = inject(ProfilService);
 
-  readonly config: ProfilUpdateFormConfig = ProfilFormUtilsService.profilUpdateFormConfig();
+
+
 /*
 
 

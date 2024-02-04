@@ -22,6 +22,6 @@ export class Commentaire extends BaseEntity {
     credential_id: string
 
     @OneToMany(
-        ()=>Jaime, (jaime)=> jaime.jaimeur, {cascade:true,eager:false})
+        ()=>Jaime, (jaime)=> jaime.credential_id, {cascade:true,eager:false})
     jaimes:Jaime[];
 }
