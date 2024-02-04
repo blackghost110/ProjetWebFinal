@@ -1,5 +1,4 @@
 import {inject, Injectable, signal, WritableSignal} from '@angular/core';
-import {PublicationCreatePayload} from "../data/payload/publication-create.payload";
 import {Observable, tap} from "rxjs";
 import {ApiURI} from "../../../shared/api/enum/api-uri";
 import {ApiService} from "../../../shared/api/service/api.service";

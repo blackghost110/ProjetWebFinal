@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import {InjectRepository} from "@nestjs/typeorm";
-import {Commentaire, Jaime} from "../model/entity";
+import { Jaime} from "../model/entity";
 import {Repository} from "typeorm";
 import {Builder} from "builder-pattern";
 import {
-    CommentaireListException,
+
     JaimeCreateException, JaimeDeleteException, JaimeListException, JaimeNotFoundException,
 } from "../profil.exception";
 import {isNil} from "lodash";

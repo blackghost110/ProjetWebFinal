@@ -5,7 +5,6 @@ import {PublicationCreatePayload} from "../data/payload/publication-create.paylo
 import {ApiService} from "../../../shared/api/service/api.service";
 import {PublicationDto} from "../model/publication.dto";
 import {ApiResponse} from "@shared";
-import {CredentialDto} from "../model/credential.dto";
 
 @Injectable({
   providedIn: 'root'

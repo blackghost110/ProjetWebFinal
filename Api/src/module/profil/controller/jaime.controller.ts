@@ -1,6 +1,6 @@
 import {Body, Controller, Delete, Get, Param, Post} from '@nestjs/common';
 import {ApiBearerAuth, ApiTags} from "@nestjs/swagger";
-import {Commentaire, Jaime} from "../model/entity";
+import { Jaime} from "../model/entity";
 import {JaimeCreatePayload} from "../model/payload/jaime-create.payload";
 import {JaimeService} from "../service/jaime.service";
 import {User} from "@common/config";

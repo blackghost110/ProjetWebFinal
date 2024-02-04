@@ -6,7 +6,6 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {ProfilUpdateFormConfig} from "../../../../security/data";
 import {UpdateProfilComponent} from "../../component/update-profil/update-profil.component";
 import {ProfilFormUtilsService} from "../../service/profil-form-utils.service";
-import {PublicationService} from "../../service/publication.service";
 
 @Component({
   selector: 'app-my-profile-page',
