@@ -28,7 +28,6 @@ export class MyProfilePageComponent implements OnInit{
 /*
 
 
-
   modifier() {
     const payload: ProfilUpdatePayload = {
       ...this.config.formGroup.value
