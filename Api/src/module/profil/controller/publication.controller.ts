@@ -20,6 +20,11 @@ export class PublicationController {
     detail(@Param('id') id: string): Promise<Publication> {
         return this.service.detail(id);
     }
+    @Get('last')
+    getDernierPubli(): Promise<Publication> {
+        return this.service.getDernierPubli();
+    }
+
 
     @Get('list-user')
     publicationDetail(@User() user :  Credential): Promise<Publication[]> {
@@ -32,5 +37,9 @@ export class PublicationController {
     @Delete('delete/:id')
     delete(@Param('id') id: string): Promise<void> {
         return this.service.delete(id);
+    }
+    @Delete('deletePubliUser/:id')
+    deletePubliUser(@User() user :  Credential, @Param('id') id: string): Promise<void> {
+        return this.service.deletePubliUser(user, id);
     }
 }

@@ -30,8 +30,7 @@ export class SidebarComponent {
     this.router.navigate(["dashboard/", AppNode.AUTHENTICATED]).then();
   }*/
   redirectAcceuil() {
-    this.router.navigate([AppNode.AUTHENTICATED]).then();
-    window.location.reload();
+    this.router.navigate(["", AppNode.AUTHENTICATED]).then();
     window.scrollTo(0, 0);
   }
 }

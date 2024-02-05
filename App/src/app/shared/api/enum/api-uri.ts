@@ -7,6 +7,8 @@ export enum ApiURI{
   PUBLICATION_CREATE = 'publication/create',
   PUBLICATION_LIST = 'publication/list',
   PUBLICATION_LIST_USER = 'publication/list-user',
+  PUBLICATION_DELETE = 'publication/delete',
+  PUBLICATION_LAST = 'publication/last',
 
   PROFIL_LIST = 'profil/profil-detail',
   PROFIL_UPDATE_USER = 'profil/update-user',
@@ -14,9 +16,11 @@ export enum ApiURI{
   COMMENTAIRE_CREATE = 'commentaire/create',
   COMMENTAIRE_LIST = 'commentaire/list',
   COMMENTAIRE_LIST_USER = 'commentaire/list-user',
+  COMMENTAIRE_LAST = 'commentaire/last',
 
   JAIME_CREATE = 'jaime/create',
-  JAIME_PUBLICATION_LIST = 'publication/list',
+  JAIME_PUBLICATION_LIST = 'jaime/list',
+  JAIME_LAST = 'jaime/last',
 
 
 }

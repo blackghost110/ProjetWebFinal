@@ -6,6 +6,7 @@ import {CommentaireCreatePayload} from "../data/payload/commentaire-create.paylo
 import {ApiResponse} from "@shared";
 import {CommentaireDto} from "../model/commentaire.dto";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +18,20 @@ export class CommentaireService {
 
   listComsPubli$:WritableSignal<CommentaireDto[]> = signal([]);
   listComsUser$:WritableSignal<CommentaireDto[]> = signal([]);
+
+  dernierComs$:WritableSignal<{
+    idPublication: string;
+    created: string;
+    idCommentaire: string;
+    contenu: string;
+    credential_id: { username: string }
+  }> = signal( {
+    credential_id: {username: ""},
+    idPublication: "",
+    idCommentaire: "",
+    created: "",
+    contenu: ""
+  });
 
   //publicationUsername$:WritableSignal<CredentialDto> = signal({username: ""});
 
@@ -34,6 +49,13 @@ export class CommentaireService {
   public CommentaireListUser(): void {
     this.api.get(ApiURI.COMMENTAIRE_LIST_USER).pipe(tap((response:ApiResponse)=>{
       this.listComsUser$.set(response.data);
+      console.log(response);
+    })).subscribe()
+  }
+
+  public commentaireDernier(): void {
+    this.api.get(ApiURI.COMMENTAIRE_LAST).pipe(tap((response:ApiResponse)=>{
+      this.dernierComs$.set(response.data);
       console.log(response);
     })).subscribe()
   }

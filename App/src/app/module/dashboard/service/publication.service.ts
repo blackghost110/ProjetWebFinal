@@ -6,6 +6,7 @@ import {ApiService} from "../../../shared/api/service/api.service";
 import {PublicationDto} from "../model/publication.dto";
 import {ApiResponse} from "@shared";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +18,22 @@ export class PublicationService {
   // Signal
   list$:WritableSignal<PublicationDto[]> = signal([]);
   listPubliUser$:WritableSignal<PublicationDto[]> = signal([]);
+  //dernierPubli$:WritableSignal<PublicationDto> = signal([]);
+
+  dernierPubli$:WritableSignal<{
+    idPublication: string;
+    created: string;
+    typePublication: string;
+    contenu: string;
+    credential_id: { username: string }
+  }> = signal( {
+    credential_id: {username: ""},
+    idPublication: "",
+    created: "",
+    contenu: "",
+    typePublication: ""
+  });
+
 
   //publicationUsername$:WritableSignal<CredentialDto> = signal({username: ""});
 
@@ -37,6 +54,18 @@ export class PublicationService {
     })).subscribe();
   }
 
+  public publicationDernier(): void {
+    this.api.get(ApiURI.PUBLICATION_LAST).pipe(tap((response:ApiResponse)=>{
+        this.dernierPubli$.set(response.data);
+        console.log(response);
+      })).subscribe()
+  }
 
-
+  public deletePublication(idPublication: string):void{
+    this.api.delete(`${ApiURI.PUBLICATION_DELETE}/${idPublication}`).subscribe();
+  }
 }
+
+
+
+

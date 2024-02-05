@@ -10,14 +10,14 @@ export class Commentaire extends BaseEntity {
     @PrimaryGeneratedColumn("uuid")
     idCommentaire: string;
 
-    @Column({length: 50, nullable: true})
+    @Column({length: 400, nullable: true})
     contenu: string;
 
-    @ManyToOne(() => Publication, {cascade: true, eager: true})
+    @ManyToOne(() => Publication, {cascade: true, eager: true, onDelete: "CASCADE"})
     @JoinColumn({referencedColumnName: 'idPublication', name: 'idPublication'})
     idPublication: string;
 
-    @ManyToOne(() => Credential, (credential) => credential.commentaires, {eager:false})
+    @ManyToOne(() => Credential, (credential) => credential.commentaires, {eager:true})
     @JoinColumn({referencedColumnName:'credential_id', name:'credential_id'})
     credential_id: string
 

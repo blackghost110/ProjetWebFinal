@@ -39,6 +39,14 @@ export class CommentaireService {
             throw new CommentaireListException();
         }
     }
+    async getDernierCommentaire(): Promise<Commentaire> {
+        return await this.repository.findOne({
+            where: {}, // Condition vide pour sélectionner toutes les publications
+            order: {
+                created: 'DESC', // Tri par ordre décroissant de la date de création
+            },
+        });
+    }
     async getAllByIdPublication(idPublication: string): Promise<Commentaire[]> {
         try {
             return await this.repository.find({ where: { idPublication } });

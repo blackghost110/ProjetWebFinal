@@ -3,15 +3,20 @@
 <ng-container>
 
   <div class="post" *ngFor="let publication of publicationService.list$().reverse()">
+
     <div class="post__avatar">
       <img src="https://cdn-icons-png.flaticon.com/256/11172/11172308.png" alt=""/>
     </div>
 
     <div class="post__body">
+
       <div class="post__header">
+
         <div class="post__headerText">
+
           <h3>{{publication.credential_id.username}}</h3>
           <span>Publié à {{ publication.created | date:'dd-MM-yyyy HH:mm' }}</span>
+
         </div>
         <div class="post__headerDescription">
           <p>
@@ -21,36 +26,43 @@
       </div>
       <img src="https://www.motortrend.com/uploads/2022/09/Ram_1500_Subaru_Outback_AI_2.jpg" alt=""/>
       <div class="post__footer">
-        <a class="publicationJaimeIcone" (click)="jaimePublication(publication.idPublication)">
+        <a class="publicationJaimeIcone" (click)="afficherLike(publication.idPublication)">
           <img src="https://cdn-icons-png.flaticon.com/128/1077/1077035.png" alt="">
         </a>
-        <ng-container>
-          <span>5 like</span>
+
+        <ng-container *ngIf="idPublicationChoisiJaime === publication.idPublication">
+            <span>{{jaimeService.listJaimePubli$().length}} Like </span>
         </ng-container>
+
 
 
         <a>
           <img src="https://cdn-icons-png.flaticon.com/128/3193/3193015.png" alt="">
-        </a> <span>5 commentaire</span>
-        <button class="postBox_postBoutton" (click)="commentaireService.CommentaireList(publication.idPublication)">Afficher</button>
+        </a>
+        <span *ngIf="commentaireService.listComsPubli$().length !== 0" >{{commentaireService.listComsPubli$().length}} Commentaire </span>
+        <button class="boutonSupprimer" (click)="supprimerPublication(publication.idPublication)">Supprimer</button>
+        <button class="boutonAfficher" (click)="afficherCommentaire(publication.idPublication)">Afficher</button>
       </div>
 
 
-
+      <ng-container *ngIf="idPublicationChoisi === publication.idPublication">
       <ng-container *ngFor="let commentaire of commentaireService.listComsPubli$()">
 
           <div class="publicationCommentaire">
             <div class="publicationCommentaireInfo">
-              <p>{{commentaire.idCommentaire}}</p>
+              <p>{{commentaire.credential_id.username}}</p>
               <span>Publié à {{ commentaire.created | date:'dd-MM-yyyy HH:mm' }}</span>
             </div>
-            <p>
-              {{commentaire.contenu}}
-            </p>
+            <p class="publiContenu">{{commentaire.contenu}}</p>
+            <div class="separationJaime">
+              <p></p>
+              <button class="likeCommentaire">j'aime</button>
+            </div>
+
           </div>
 
         </ng-container>
-
+      </ng-container>
 
 
       <div class="repondreCommentaire" [formGroup]="config.formGroup">

@@ -5,4 +5,5 @@ export interface JaimeDto{
   credential_id: CredentialDto;
   idPublication: string;
   idCommentaire: string;
+  created: Date;
 }

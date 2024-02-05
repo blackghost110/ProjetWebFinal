@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {InjectRepository} from "@nestjs/typeorm";
-import { Jaime} from "../model/entity";
+import {Jaime} from "../model/entity";
 import {Repository} from "typeorm";
 import {Builder} from "builder-pattern";
 import {
@@ -40,6 +40,14 @@ export class JaimeService {
         } catch (e) {
             throw new JaimeListException();
         }
+    }
+    async getDernierJaime(): Promise<Jaime> {
+        return await this.repository.findOne({
+            where: {}, // Condition vide pour sélectionner toutes les publications
+            order: {
+                created: 'DESC', // Tri par ordre décroissant de la date de création
+            },
+        });
     }
     async getAllByIdPublication(idPublication: string): Promise<Jaime[]> {
         try {

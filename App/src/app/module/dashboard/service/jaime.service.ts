@@ -14,6 +14,19 @@ export class JaimeService {
   private readonly api: ApiService = inject(ApiService);
 
   listJaimePubli$:WritableSignal<JaimeDto[]> = signal([]);
+  dernierLike$:WritableSignal<{
+    idLike: string;
+    idPublication: string;
+    idCommentaire: string;
+    created: string;
+    credential_id: { username: string }
+  }> = signal( {
+    credential_id: {username: ""},
+    idLike: "",
+    idPublication: "",
+    idCommentaire: "",
+    created: ""
+  });
 
   public jaimeCreate(payload: JaimeCreatePayload): Observable<any> {
     return this.api.post(ApiURI.JAIME_CREATE, payload);
@@ -25,5 +38,13 @@ export class JaimeService {
       console.log(response);
     })).subscribe()
   }
+
+  public jaimeDernier(): void {
+    this.api.get(ApiURI.JAIME_LAST).pipe(tap((response:ApiResponse)=>{
+      this.dernierLike$.set(response.data);
+      console.log(response);
+    })).subscribe()
+  }
+
 
 }

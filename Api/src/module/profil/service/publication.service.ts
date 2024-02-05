@@ -50,6 +50,16 @@ export class PublicationService {
         throw new PublicationNotFoundException();
     }
 
+    async getDernierPubli(): Promise<Publication> {
+            return await this.repository.findOne({
+                where: {}, // Condition vide pour sélectionner toutes les publications
+                order: {
+                    created: 'DESC', // Tri par ordre décroissant de la date de création
+                },
+            });
+    }
+
+
     async getAll(): Promise<Publication[]> {
         try {
             return await this.repository.find();
@@ -62,6 +72,20 @@ export class PublicationService {
         try {
             const detail = await this.detail(id);
             await this.repository.remove(detail);
+        } catch (e) {
+            throw new PublicationDeleteException();
+        }
+    }
+    async deletePubliUser(user: Credential, id: string): Promise<void> {
+        try {
+            const result = await this.repository.findOneBy({credential_id: user.credential_id})
+
+            if (!isNil(result))
+            {
+                const detail = await this.detail(id);
+                await this.repository.remove(detail);
+            }
+
         } catch (e) {
             throw new PublicationDeleteException();
         }

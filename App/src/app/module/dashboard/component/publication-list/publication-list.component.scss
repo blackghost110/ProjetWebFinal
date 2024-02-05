@@ -42,6 +42,28 @@
   span{
     margin-right: 10px;
   }
+
+
+}
+.boutonAfficher {
+  //background-color: #45a049;
+  border: 1px black solid;
+  color: black;
+  font-weight: 750;
+  border-radius: 10px;
+  width: 80px;
+  height: 30px;
+  margin-left: 20px;
+}
+.boutonSupprimer{
+  border: 1px black solid;
+  font-weight: 750;
+  border-radius: 10px;
+  height: 30px;
+  margin-left: auto;
+  background-color: indianred;
+  color: white;
+
 }
 
 .post__footer a {
@@ -53,16 +75,7 @@
   width: 25px;
   height: 25px;
 }
-.postBox_postBoutton {
-  //background-color: #45a049;
-  border: 1px black solid;
-  color: black;
-  font-weight: 750;
-  border-radius: 10px;
-  width: 80px;
-  height: 30px;
-  margin-left: auto;
-}
+
 .postBox_postBoutton:hover {
   cursor: pointer;
 }
@@ -71,7 +84,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-top: 15px;
-
+  max-width: 500px;
   h3{
     margin: 0;
   }
@@ -82,9 +95,13 @@
 .publicationCommentaireInfo {
   p{
     font-weight: bold;
+
   }
 }
-
+.publiContenu{
+  word-wrap: break-word;
+  white-space: pre-line;
+}
 
 //COMMENTAIRE
 
@@ -117,9 +134,33 @@
   cursor: pointer;
   margin-left: 10px;
 }
+.likeCommentaire {
+  border: none;
+  background-color: #45a049;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: auto;
+}
 
 .repondreCommentaireBouton:hover {
   background-color: #2980b9;
 }
+.boutonLikeCommentaire {
+  border: none;
+  font-weight: 750;
+  border-radius: 10px;
+  height: 30px;
+  margin-left: auto;
+  background-color: #45a049;
+  color: white;
 
+  display: inline-block;
+  text-align: right;
+}
+
+.separationJaime{
+  display: flex;
+}
 

@@ -1,6 +1,6 @@
 import {Body, Controller, Delete, Get, Param, Post} from '@nestjs/common';
 import {ApiBearerAuth, ApiTags} from "@nestjs/swagger";
-import { Jaime} from "../model/entity";
+import {Jaime} from "../model/entity";
 import {JaimeCreatePayload} from "../model/payload/jaime-create.payload";
 import {JaimeService} from "../service/jaime.service";
 import {User} from "@common/config";
@@ -27,6 +27,10 @@ export class JaimeController {
     @Get('list/:idPublication')
     getAllByIdPublication(@Param('idPublication') idPublication: string): Promise<Jaime[]> {
         return this.service.getAllByIdPublication(idPublication);
+    }
+    @Get('last')
+    getDernierJaime(): Promise<Jaime> {
+        return this.service.getDernierJaime();
     }
     @Delete('delete/:id')
     delete(@Param('id') id: string): Promise<void> {

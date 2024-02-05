@@ -24,6 +24,10 @@ export class CommentaireController {
     getAll(): Promise<Commentaire[]> {
         return this.service.getAll();
     }
+    @Get('last')
+    getDernierCommentaire(): Promise<Commentaire> {
+        return this.service.getDernierCommentaire();
+    }
     @Get('list/:idPublication')
     getAllByIdPublication(@Param('idPublication') idPublication: string): Promise<Commentaire[]> {
         return this.service.getAllByIdPublication(idPublication);

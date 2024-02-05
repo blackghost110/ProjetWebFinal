@@ -5,16 +5,21 @@
 
     <div class="YourPageStatSeparation">
       <p>Dernier Commentaire publié :</p>
-      <p>par Andrew COBRA Tate</p>
-      <p>il y a 10 heures</p>
+      <p>par {{commentaireService.dernierComs$().credential_id.username}}</p>
+      <p>à {{commentaireService.dernierComs$().created | date:'dd-MM-yyyy HH:mm'}}</p>
     </div>
 
     <div class="YourPageStatSeparation">
       <p>Dernière Publication publiée :</p>
-      <p>Par Andrew COBRA Tate</p>
+      <p>Par {{publicationService.dernierPubli$().credential_id.username}}</p>
 
         <!--<p>Il y a {{publicationService.list$().at(0)?.created | date: 'dd-MM-yyyy HH:mm'}}</p> -->
-        <p>Il y a {{publicationService.list$().at(0)}}</p>
+        <p>à {{publicationService.dernierPubli$().created | date:'dd-MM-yyyy HH:mm'}}</p>
+    </div>
+    <div class="YourPageStatSeparation">
+      <p>Dernier J'aime :</p>
+      <p>par {{jaimeService.dernierLike$().credential_id.username}}</p>
+      <p>à {{jaimeService.dernierLike$().created | date:'dd-MM-yyyy HH:mm'}}</p>
     </div>
 
   </div>

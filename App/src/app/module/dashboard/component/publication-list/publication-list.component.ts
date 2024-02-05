@@ -27,14 +27,13 @@ export class PublicationListComponent implements OnInit{
   readonly profilService: ProfilService = inject(ProfilService);
   readonly commentaireService: CommentaireService = inject(CommentaireService)
   readonly jaimeService: JaimeService = inject(JaimeService);
-
+  idPublicationChoisi: string | null = null;
+  idPublicationChoisiJaime: string | null = null;
 
 
   ngOnInit(): void {
     this.publicationService.publicationList();
     this.profilService.profilGet();
-    //this.jaimeService.jaimePublicationList();
-
 
   }
 
@@ -52,6 +51,25 @@ export class PublicationListComponent implements OnInit{
 
   }
 
+  afficherCommentaire(idPublication: string) {
+    if (this.idPublicationChoisi === idPublication) {
+      this.idPublicationChoisi = null;
+    } else {
+      this.idPublicationChoisi = idPublication;
+      this.commentaireService.CommentaireList(idPublication);
+    }
+  }
+  afficherLike(idPublication: string) {
+      this.idPublicationChoisiJaime = idPublication;
+      this.jaimePublication(idPublication);
+      this.jaimeService.jaimePublicationList(idPublication);
+  }
+  supprimerPublication(idPublication: string): void {
+    this.publicationService.deletePublication(idPublication);
+    alert("Publication supprimée avec succès");
+  }
+
+
   jaimePublication(idPublication: string) {
     const payload: JaimeCreatePayload = {
       credential_id: {},
@@ -60,6 +78,6 @@ export class PublicationListComponent implements OnInit{
     };
     console.log('payload', payload);
     this.jaimeService.jaimeCreate(payload as JaimeCreatePayload).subscribe();
-    alert("Publication Aimé");
+    this.jaimeService.jaimePublicationList(idPublication);
   }
 }
