@@ -17,7 +17,7 @@ export class Commentaire extends BaseEntity {
     @JoinColumn({referencedColumnName: 'idPublication', name: 'idPublication'})
     idPublication: string;
 
-    @ManyToOne(() => Credential, (credential) => credential.commentaires, {eager:true})
+    @ManyToOne(() => Credential, (credential) => credential.commentaires, {eager:true, onDelete: "CASCADE"})
     @JoinColumn({referencedColumnName:'credential_id', name:'credential_id'})
     credential_id: string
 

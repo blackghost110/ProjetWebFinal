@@ -31,7 +31,7 @@ export class Profil extends BaseEntity {
     @Column({length: 34, nullable: true})
     email: string;
 
-    @OneToOne(() => Credential, {eager: true})
+    @OneToOne(() => Credential, {eager: true, onDelete: "CASCADE"})
     @JoinColumn({referencedColumnName: 'credential_id', name: 'credential_id'})
     credential_id: string;
 

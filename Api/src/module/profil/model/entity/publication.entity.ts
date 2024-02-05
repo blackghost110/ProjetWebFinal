@@ -23,7 +23,7 @@ export class Publication extends BaseEntity {
     @Column({length: 50, nullable: true})
     typePublication: string;
 
-    @ManyToOne(() => Credential, {eager:true})
+    @ManyToOne(() => Credential, {eager:true, onDelete: "CASCADE"})
     @JoinColumn({referencedColumnName:'credential_id', name:'credential_id'})
     credential_id: string
 

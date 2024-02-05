@@ -61,7 +61,7 @@ export class CommentaireService {
 
         const results = await this.repository.find(coms);
 
-        if (results.length > 0) {
+        if (!(isNil(results))) {
             return results;
         }
 

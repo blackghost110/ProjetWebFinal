@@ -61,4 +61,11 @@ export class SignInUpFormComponent implements OnInit{
     }
   }
 
+  redirectSignUp() {
+    this.router.navigate(["account/sign-up"]).then();
+  }
+
+  redirectSignIn() {
+    this.router.navigate(["account/sign-in"]).then();
+  }
 }

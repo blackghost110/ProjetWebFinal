@@ -33,7 +33,7 @@ export class PublicationService {
 
         const results = await this.repository.find(options);
 
-        if (results.length > 0) {
+        if (!(isNil(results))) {
             return results;
         }
 

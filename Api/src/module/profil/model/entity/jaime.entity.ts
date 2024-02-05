@@ -10,7 +10,7 @@ export class Jaime extends BaseEntity {
     @PrimaryGeneratedColumn("uuid")
     idLike: string;
 
-    @ManyToOne(() => Credential, {eager:true})
+    @ManyToOne(() => Credential, {eager:true, onDelete: "CASCADE"})
     @JoinColumn({referencedColumnName:'credential_id', name:'credential_id'})
     credential_id: string
 
@@ -18,7 +18,7 @@ export class Jaime extends BaseEntity {
     @JoinColumn({referencedColumnName: 'idPublication', name: 'idPublication'})
     idPublication: string;
 
-    @ManyToOne(() => Commentaire, {cascade: true, eager: false})
+    @ManyToOne(() => Commentaire, {cascade: true, eager: false, onDelete: "CASCADE"})
     @JoinColumn({referencedColumnName: 'idCommentaire', name: 'idCommentaire'})
     idCommentaire: string;
 
