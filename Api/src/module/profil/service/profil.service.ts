@@ -42,7 +42,7 @@ export class ProfilService {
         throw new ProfilNotFoundException();
     }
 
-    async profilDetail(user:Credential): Promise<Profil> {
+    async getProfilUser(user:Credential): Promise<Profil> {
         const result = await this.repository.findOneBy({credential_id: user.credential_id});
         if (!(isNil(result))) {
             return result;

@@ -4,7 +4,7 @@ import {ApiURI} from "../../../shared/api/enum/api-uri";
 import {ApiService} from "../../../shared/api/service/api.service";
 import {JaimeCreatePayload} from "../data/payload/jaime-create.payload";
 import {ApiResponse} from "@shared";
-import {JaimeDto} from "../model/jaime.dto";
+import {JaimeDto} from "../data/model/jaime.dto";
 
 @Injectable({
   providedIn: 'root'

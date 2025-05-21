@@ -3,8 +3,9 @@ import {Observable, tap} from "rxjs";
 import {ApiURI} from "../../../shared/api/enum/api-uri";
 import {PublicationCreatePayload} from "../data/payload/publication-create.payload";
 import {ApiService} from "../../../shared/api/service/api.service";
-import {PublicationDto} from "../model/publication.dto";
+import {PublicationDto} from "../data/model/publication.dto";
 import {ApiResponse} from "@shared";
+import {ProfilDto} from "../data/model/profil.dto";
 
 
 @Injectable({
@@ -35,6 +36,7 @@ export class PublicationService {
   });
 
 
+
   //publicationUsername$:WritableSignal<CredentialDto> = signal({username: ""});
 
   public publicationCreate(payload: PublicationCreatePayload): Observable<any> {
@@ -60,9 +62,8 @@ export class PublicationService {
         console.log(response);
       })).subscribe()
   }
-
   public deletePublication(idPublication: string):void{
-    this.api.delete(`${ApiURI.PUBLICATION_DELETE}/${idPublication}`).subscribe();
+    this.api.delete(`${ApiURI.PUBLICATION_DELETE_USER}/${idPublication}`).subscribe();
   }
 }
 

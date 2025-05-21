@@ -18,7 +18,7 @@ import {JaimeService} from "../../service/jaime.service";
   templateUrl: './publication-list.component.html',
   styleUrls: ['./publication-list.component.scss']
 })
-export class PublicationListComponent implements OnInit{
+export class PublicationListComponent implements OnInit {
 
   @Input({required: true}) config!: CommentaireCreateFormConfig;
 
@@ -33,10 +33,9 @@ export class PublicationListComponent implements OnInit{
 
   ngOnInit(): void {
     this.publicationService.publicationList();
-    this.profilService.profilGet();
+    this.profilService.getProfilUser();
 
   }
-
 
 
   Commenter(idPublication: string) {
@@ -59,11 +58,13 @@ export class PublicationListComponent implements OnInit{
       this.commentaireService.CommentaireList(idPublication);
     }
   }
+
   afficherLike(idPublication: string) {
-      this.idPublicationChoisiJaime = idPublication;
-      this.jaimePublication(idPublication);
-      this.jaimeService.jaimePublicationList(idPublication);
+    this.idPublicationChoisiJaime = idPublication;
+    this.jaimePublication(idPublication);
+    this.jaimeService.jaimePublicationList(idPublication);
   }
+
   supprimerPublication(idPublication: string): void {
     this.publicationService.deletePublication(idPublication);
     alert("Publication supprimée avec succès");
@@ -79,5 +80,16 @@ export class PublicationListComponent implements OnInit{
     console.log('payload', payload);
     this.jaimeService.jaimeCreate(payload as JaimeCreatePayload).subscribe();
     this.jaimeService.jaimePublicationList(idPublication);
+  }
+
+  jaimeCommentaire(idCommentaire: string) {
+    const payload: JaimeCreatePayload = {
+      credential_id: {},
+      idCommentaire,
+      ...this.config.formGroup.value
+    };
+    console.log('payload', payload);
+    this.jaimeService.jaimeCreate(payload as JaimeCreatePayload).subscribe();
+
   }
 }

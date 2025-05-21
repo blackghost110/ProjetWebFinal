@@ -8,9 +8,10 @@ export enum ApiURI{
   PUBLICATION_LIST = 'publication/list',
   PUBLICATION_LIST_USER = 'publication/list-user',
   PUBLICATION_DELETE = 'publication/delete',
+  PUBLICATION_DELETE_USER = 'publication/deletePubliUser',
   PUBLICATION_LAST = 'publication/last',
 
-  PROFIL_LIST = 'profil/profil-detail',
+  PROFIL_USER = 'profil/profil-user',
   PROFIL_UPDATE_USER = 'profil/update-user',
 
   COMMENTAIRE_CREATE = 'commentaire/create',

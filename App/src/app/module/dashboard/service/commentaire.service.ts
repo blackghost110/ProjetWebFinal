@@ -4,7 +4,7 @@ import {Observable, tap} from "rxjs";
 import {ApiURI} from "../../../shared/api/enum/api-uri";
 import {CommentaireCreatePayload} from "../data/payload/commentaire-create.payload";
 import {ApiResponse} from "@shared";
-import {CommentaireDto} from "../model/commentaire.dto";
+import {CommentaireDto} from "../data/model/commentaire.dto";
 
 
 @Injectable({

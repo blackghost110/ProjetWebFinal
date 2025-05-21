@@ -5,7 +5,7 @@
 
   <div class="postBox" [formGroup]="config.formGroup" >
       <div class="postbox_input">
-        <img src="https://cdn-icons-png.flaticon.com/256/11172/11172308.png" alt="" />
+         <img src="./assets/image/{{profilService.profil$().photoProfil}}.png" alt="aveugle" />
         <ng-container *ngFor="let field of config.fields">
           <input [type]="field.inputType" [formControl]="field.control" [placeholder]="field.placeHolder" >
         </ng-container>

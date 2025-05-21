@@ -78,14 +78,12 @@ export class PublicationService {
     }
     async deletePubliUser(user: Credential, id: string): Promise<void> {
         try {
-            const result = await this.repository.findOneBy({credential_id: user.credential_id})
-
+            const result = await this.repository.findOneBy({credential_id: user.credential_id, idPublication: id})
             if (!isNil(result))
             {
                 const detail = await this.detail(id);
                 await this.repository.remove(detail);
             }
-
         } catch (e) {
             throw new PublicationDeleteException();
         }

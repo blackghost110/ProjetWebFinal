@@ -1,11 +1,11 @@
 <div class="yourPage">
-  <h2>Information Your Page</h2>
+  <h2>Mes Statistiques</h2>
   <div class="yourPageStat">
     <a href="">
-      <img src="https://cdn-icons-png.flaticon.com/256/11172/11172308.png" alt="">
+      <img src="./assets/image/{{profilService.profil$().photoProfil}}.png" alt="">
     </a>
     <div class="YourPageStatSeparation">
-      <h3>Mes stats</h3>
+      <h3>{{profilService.profil$().nom}} {{profilService.profil$().prenom}}</h3>
       <p>Publication : {{publicationService.listPubliUser$().length}}</p>
       <p>Commentaires : {{commentaireService.listComsUser$().length}}</p>
     </div>

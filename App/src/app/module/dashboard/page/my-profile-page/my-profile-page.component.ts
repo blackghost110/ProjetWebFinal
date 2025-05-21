@@ -19,7 +19,7 @@ export class MyProfilePageComponent implements OnInit{
   readonly config: ProfilUpdateFormConfig = ProfilFormUtilsService.profilUpdateFormConfig();
 
   ngOnInit(): void {
-    this.profilService.profilGet();
+    this.profilService.getProfilUser();
   }
   readonly profilService: ProfilService = inject(ProfilService);
 

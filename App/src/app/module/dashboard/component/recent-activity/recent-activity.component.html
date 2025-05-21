@@ -5,22 +5,21 @@
 
     <div class="YourPageStatSeparation">
       <p>Dernier Commentaire publié :</p>
-      <p>par {{commentaireService.dernierComs$().credential_id.username}}</p>
+      <p>par <span style="color: cornflowerblue">{{commentaireService.dernierComs$().credential_id.username}}</span></p>
       <p>à {{commentaireService.dernierComs$().created | date:'dd-MM-yyyy HH:mm'}}</p>
+      <!--<p>Il a dit : {{commentaireService.dernierComs$().contenu}}</p> -->
     </div>
 
     <div class="YourPageStatSeparation">
       <p>Dernière Publication publiée :</p>
-      <p>Par {{publicationService.dernierPubli$().credential_id.username}}</p>
+      <p>Par <span style="color: cornflowerblue">{{publicationService.dernierPubli$().credential_id.username}}</span></p>
+      <p>à {{publicationService.dernierPubli$().created | date:'dd-MM-yyyy HH:mm'}}</p>
+     </div>
+     <div class="YourPageStatSeparation">
+       <p>Dernier J'aime :</p>
+       <p>par <span style="color: cornflowerblue">{{jaimeService.dernierLike$().credential_id.username}}</span></p>
+       <p>à {{jaimeService.dernierLike$().created | date:'dd-MM-yyyy HH:mm'}}</p>
+     </div>
 
-        <!--<p>Il y a {{publicationService.list$().at(0)?.created | date: 'dd-MM-yyyy HH:mm'}}</p> -->
-        <p>à {{publicationService.dernierPubli$().created | date:'dd-MM-yyyy HH:mm'}}</p>
-    </div>
-    <div class="YourPageStatSeparation">
-      <p>Dernier J'aime :</p>
-      <p>par {{jaimeService.dernierLike$().credential_id.username}}</p>
-      <p>à {{jaimeService.dernierLike$().created | date:'dd-MM-yyyy HH:mm'}}</p>
-    </div>
-
-  </div>
-</div>
+   </div>
+ </div>

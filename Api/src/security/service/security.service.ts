@@ -68,11 +68,11 @@ export class SecurityService {
             // Automatically create a profile for the user
             const newProfilPayload: ProfilCreatePayload = {
                 credential_id: newUser.credential_id,
-                nom: '',
-                prenom: '',
-                description: '',
-                status: '',
-                photoProfil: '',
+                nom: 'Nouvel',
+                prenom: 'Arrivant',
+                description: 'Rien d\'interessant...',
+                status: 'public',
+                photoProfil: 'pieuvre',
                 email: newUser.mail,
             };
 

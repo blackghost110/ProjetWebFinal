@@ -24,7 +24,7 @@
           </p>
         </div>
       </div>
-      <img src="https://www.motortrend.com/uploads/2022/09/Ram_1500_Subaru_Outback_AI_2.jpg" alt=""/>
+      <img src="./assets/image/paysage.png" alt=""/>
       <div class="post__footer">
         <a class="publicationJaimeIcone" (click)="afficherLike(publication.idPublication)">
           <img src="https://cdn-icons-png.flaticon.com/128/1077/1077035.png" alt="">
@@ -56,7 +56,7 @@
             <p class="publiContenu">{{commentaire.contenu}}</p>
             <div class="separationJaime">
               <p></p>
-              <button class="likeCommentaire">j'aime</button>
+              <button class="likeCommentaire" (click)="jaimeCommentaire(commentaire.idCommentaire)" >j'aime</button>
             </div>
 
           </div>

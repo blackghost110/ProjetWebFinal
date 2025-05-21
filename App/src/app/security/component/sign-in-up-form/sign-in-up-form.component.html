@@ -14,11 +14,13 @@
     <button (click)="save()">{{btnLabel}}</button>
   </div>
 
+  <br>
   <ng-container *ngIf="title == 'Connexion'">
     <div>
       <button (click)="redirectSignUp()">Aller vers la page d'inscription</button>
     </div>
   </ng-container>
+
   <ng-container *ngIf="title == 'Inscription'">
     <div>
       <button (click)="redirectSignIn()">Aller vers la page de connexion</button>

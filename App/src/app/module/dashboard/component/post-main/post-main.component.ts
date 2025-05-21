@@ -1,9 +1,10 @@
-import {Component, inject, Input, signal, WritableSignal} from '@angular/core';
+import {Component, inject, Input, OnInit, signal, WritableSignal} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {PublicationCreatePayload} from "../../data/payload/publication-create.payload";
 import {PublicationCreateFormConfig} from "../../../../security/data";
 import {PublicationService} from "../../service/publication.service";
 import {ReactiveFormsModule} from "@angular/forms";
+import {ProfilService} from "../../service/profil.service";
 
 
 
@@ -14,14 +15,18 @@ import {ReactiveFormsModule} from "@angular/forms";
   templateUrl: './post-main.component.html',
   styleUrls: ['./post-main.component.scss']
 })
-export class PostMainComponent {
+export class PostMainComponent implements OnInit {
 
-
-
-  private readonly publicationService: PublicationService = inject(PublicationService);
+  readonly publicationService: PublicationService = inject(PublicationService);
+  readonly profilService: ProfilService = inject(ProfilService);
 
   @Input({required: true}) config!: PublicationCreateFormConfig;
   error$: WritableSignal<string> = signal('');
+
+  ngOnInit() {
+    this.profilService.getProfilUser();
+  }
+
 
   save(): void {
     this.error$.set('');
